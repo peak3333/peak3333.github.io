@@ -1,0 +1,372 @@
+<!doctype html>
+
+<html lang="th">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UNDERLINE FC </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: red;
+      --card: #0b1220;
+      --accent: #ef4444;
+      --muted: #666666;
+      --glass: rgba(255, 255, 255, 0.04)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      margin: 0;
+      background: white;
+      color: black;
+      min-height: 100vh
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 36px auto;
+      padding: 20px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: black;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .controls {
+      display: flex;
+      gap: 13px
+    }
+
+    .controls button {
+      flex: 1;
+      font-size: 20px;
+      padding: 5px;
+      min-width: 200px;
+      color: black;
+      background: white;
+      border: 2px solid black;
+      border-radius: 20px;
+      cursor: pointer;
+    
+
+    }
+
+
+
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      color: inherit;
+      font-weight: 600
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--accent), #ff7a7a);
+      color: #071022;
+      border: none
+    }
+
+    .hero {
+      margin-top: 0px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      padding: 18px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 20px
+    }
+
+    .hero-info {
+      flex: 1
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 30px
+    }
+
+    .hero p {
+      margin: 6px 0 0;
+      color: var(--muted)
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 20px
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 12px;
+      border: 2px solid black;
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      background: black;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white
+    }
+
+    .meta {
+      flex: 1
+    }
+
+    .meta h3 {
+      margin: 0;
+      font-size: 15px
+    }
+
+    .meta p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .tag {
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 12px
+    }
+
+    footer {
+      margin-top: 30px;
+      min-width: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px
+      
+    }
+
+  
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+        margin: 20px auto;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .brand {
+        text-align: center;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .btn {
+        padding: 12px 16px;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+      }
+
+      .actions {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .card {
+        padding: 15px;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      .lead {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero {
+        margin-top: 15px;
+        padding: 12px;
+      }
+
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="S__1785862_0.jpg" alt="Logo" class="logo">
+        <div>
+          <h1>UNDERLINE FC</h1>
+          <p class="lead">อันดับ4 ฟุตซอลประเพณีแก่นนคร</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="goTo('roster')">รายชื่อนักเตะ</button>
+        <button class="btn" onclick="goTo('formation')">แผนการเล่น</button>
+        <button class="btn" onclick="goTo('Match')">แมตการแข่งขัน</button>
+      </div>
+  </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-info">
+      <h2>ยินดีต้อนรับสู่ สโมสร อันเดอร์ไลน์</h2>
+      <p>ติดตามรายชื่อนักเตะ แผนการเล่น และข่าวสารของทีมเราได้ที่นี่ —
+        พลังของทีมมาจากความกลุ่มเพื่อนที่ไม่ต้องเพอร์เฟคแต่ไม่เคยยอมแพ้
+      </p>
+      <p>(ผู้สร้างเว็ปไซต์และพัฒนา นายสิรภพ ราชบุตร)</p>
+      <p>(ผู้พัฒนาเว็ปไซต์ นายธนาธิป ทรงพุทธิ์)</p>
+
+    </div>
+    <div style="width:160px;text-align:right">
+      <div style="font-size:20px;color:var(--muted)">การแข่งขันล่าสุด</div>
+      <div style="font-size:28px;font-weight:800;margin-top:6px">2(2) — 2(4)</div>
+      <div style="margin-top:8px;color:var(--muted);font-size:13px">8นัดล่าสุด 5W 1D 2L</div>
+    </div>
+  </section>
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 900px;
+      margin: 0 auto
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border: 3px solid black;
+      border-radius: 8px;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="gallery">
+      <img src="S__1785865_0.jpg" alt="รูปที่ 1">
+      <img src="S__1785864_0.jpg" alt="รูปที่ 2">
+      <img src="S__1785863_0.jpg" alt="รูปที่ 3">
+      <img src="S__1785861_0.jpg" alt="รูปที่ 4">
+      <img src="S__1785858_0.jpg" alt="รูปที่ 5">
+      <img src="S__1785860_0.jpg" alt="รูปที่ 6">
+
+
+
+    </div>
+    <script>
+      function goTo(page) {
+        if (page === 'roster') {
+          window.location.href = 'roster.html';
+        } else if (page === 'formation') {
+          window.location.href = 'formation.html';
+        } else if (page === 'Match') {
+          window.location.href = 'match.html';
+        } else {
+          console.log('ไปหน้า:', page);
+        }
+      }
+
+
+    </script>
+  </body>
+
+</html>
