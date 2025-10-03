@@ -1,0 +1,374 @@
+<!doctype html>
+
+<html lang="th">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>แมตการแข่งขัน - UNDERLINE FC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: red;
+      --card: #0b1220;
+      --accent: #ef4444;
+      --muted: #666666;
+      --glass: rgba(255, 255, 255, 0.04)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      margin: 0;
+      background: white;
+      color: black;
+      min-height: 100vh
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 36px auto;
+      padding: 20px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: black;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: white;
+      border: 2px solid black;
+      cursor: pointer;
+      color: black;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: black;
+      color: white;
+    }
+
+    .match-card {
+      background: white;
+      border-radius: 12px;
+      padding:20px;
+      border: 2px solid black;
+      margin-bottom:10px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .team-left {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .team-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .team-name {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 30px
+    }
+
+    .team-logo {
+      width: 50px;
+      height: 50px;
+      background: black;
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+
+
+    .score-center {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 800;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 15px 20px;
+      background: white;
+    }
+
+    .match-info {
+      text-align: right;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .win { color: green; }
+    .lose { color: red; }
+    .draw { color: orange; }
+
+    .record-summary {
+      background: white;
+      border: 2px solid black;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      
+    }
+
+    .record-title {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .record-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 15px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 40px;
+      font-weight: 800;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+        margin: 20px auto;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .match-card {
+        padding: 15px;
+        gap: 10px;
+        grid-template-columns: 1fr auto 1fr;
+      }
+
+      .team-name {
+        font-size: 14px;
+      }
+
+      .score-center {
+        font-size: 24px;
+        padding: 10px 15px;
+      }
+
+      .record-stats {
+        gap: 20px;
+      }
+
+      .stat-number {
+        font-size: 20px;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .match-card {
+        padding: 12px;
+        gap: 8px;
+      }
+
+      .team-name {
+        font-size: 12px;
+      }
+
+      .score-center {
+        font-size: 20px;
+        padding: 8px 12px;
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      .record-stats {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">    
+        <div><img src="S__1785862_0.jpg" alt="Logo" class="logo">  </div>
+        <div>
+          <h1>แมตการแข่งขัน</h1>
+          <p class="lead">ผลการแข่งขัน</p>
+        </div>
+      </div>
+      <div>
+        <a href="index.html" class="btn">กลับหน้าหลัก</a>
+      </div>
+    </header>
+
+    <div class="record-summary">
+      <div class="record-title">สถิติการแข่งขันล่าสุด</div>
+      <div class="record-stats">
+        <div class="stat">
+          <div class="stat-number win">5</div>
+          <div class="stat-label">ชนะ</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number draw">1</div>
+          <div class="stat-label">เสมอ</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number lose">2</div>
+          <div class="stat-label">แพ้</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="match-card">
+      <div class="team-left">
+        <div class="team-name">UNDERLINE FC</div>
+      </div>
+      <div class="score-center win">5 - 0</div>
+      <div class="team-right">
+        <div class="team-name">BLACKEAGLE</div>
+      </div>
+    </div>
+
+    <div class="match-card">
+      <div class="team-left">
+        <div class="team-name">UNDERLINE FC</div>
+      </div>
+      <div class="score-center win">3 - 1</div>
+      <div class="team-right">
+        <div class="team-name">FRIENDCITY</div>
+      </div>
+    </div>
+
+    <div class="match-card">
+      <div class="team-left">
+        <div class="team-name">UNDERLINE FC</div>
+      </div>
+      <div class="score-center win">4 - 1</div>
+      <div class="team-right">
+        <div class="team-name">LONGMATAE</div>
+      </div>
+    </div>
+
+    <div class="match-card">
+      <div class="team-left">
+        <div class="team-name">UNDERLINE FC</div>
+      </div>
+      <div class="score-center win">5 - 2</div>
+      <div class="team-right">
+        <div class="team-name">THELIONS</div>
+      </div>
+    </div>
+
+   <div class="match-card">
+      <div class="team-left">
+        <div class="team-name">UNDERLINE FC</div>
+      </div>
+      <div class="score-center draw">1 - 1</div>
+      <div class="team-right">
+        <div class="team-name">HOLIDAY</div>
+      </div>
+    </div>
+
+    <div class="match-card">
+      <div class="team-left">
+        <div class="team-name">UNDERLINE FC</div>
+      </div>
+      <div class="score-center lose">1 - 4</div>
+      <div class="team-right">
+        <div class="team-name">HKT</div>
+      </div>
+    </div>
+
+    <div class="match-card">
+      <div class="team-left">
+        <div class="team-name">UNDERLINE FC</div>
+      </div>
+      <div class="score-center lose">2(2) - 2(4)</div>
+      <div class="team-right">
+        <div class="team-name">HOLIDAY</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!doctype html>
+
+<html lang="th">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>แผนในฝัน - UNDERLINE FC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: red;
+      --card: #0b1220;
+      --accent: #ef4444;
+      --muted: #666666;
+      --glass: rgba(255, 255, 255, 0.04)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      margin: 0;
+      background: white;
+      color: black;
+      min-height: 100vh
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 36px auto;
+      padding: 20px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: black;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: white;
+      border: 2px solid black;
+      cursor: pointer;
+      color: black;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: black;
+      color: white;
+    }
+
+    .field {
+      width: 100%;
+      max-width: 700px;
+      margin: 30px auto;
+      aspect-ratio: 3/2;
+      background: blue;
+      border: 4px solid black;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .field::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: white;
+      transform: translateY(-50%);
+    }
+
+    .field::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      border: 2px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .player-pos {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: black;
+      border: 2px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .goalkeeper { top: 5%; left: 50%; transform: translateX(-50%); }
+    .defender1 { bottom: 35%; left: 15%; }
+    .defender2 { bottom: 35%; right: 15%; }
+    .midfielder { bottom: 50%; left: 50%; transform: translateX(-50%); }
+    .forward { bottom: 8%; left: 50%; transform: translateX(-50%); }
+
+    .formation-info {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border: 2px solid black;
+      border-radius: 12px;
+    }
+
+    .formation-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .formation-desc {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    
+    @media (max-width: 680px) {
+      .container {
+        padding: 20px;
+        margin: 20px auto;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .field {
+        max-width: 90%;
+        margin: 20px auto;
+      }
+
+      .player-pos {
+        width: 40px;
+        height: 40px;
+        font-size: 11px;
+      }
+
+      .formation-info {
+        padding: 15px;
+        margin-top: 20px;
+      }
+
+      .formation-title {
+        font-size: 20px;
+      }
+
+      .formation-desc {
+        font-size: 14px;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width:680px) {
+      .field {
+        max-width: 400px;
+      }
+
+      .player-pos {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+      }
+
+      .formation-info {
+        padding: 12px;
+      }
+
+      .formation-title {
+        font-size: 18px;
+      }
+
+      .formation-desc {
+        font-size: 13px;
+      }
+
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">    
+        <div><img src="S__1785862_0.jpg" alt="Logo" class="logo"> 
+        </div>
+        <div>
+          <h1>แผนการเล่น</h1>
+          <p class="lead">ทีมอันเดอร์ไลน์</p>
+        </div>
+      </div>
+      <div>
+        <a href="index.html" class="btn">กลับหน้าหลัก</a>
+      </div>
+    </header>
+
+    <div class="field">
+      <div class="player-pos goalkeeper">GK</div>
+      <div class="player-pos defender1">LW</div>
+      <div class="player-pos defender2">RW</div>
+      <div class="player-pos midfielder">CB</div>
+      <div class="player-pos forward">CF</div>
+    </div>
+
+    <div class="formation-info">
+      <div class="formation-title">แผน 1-2-1</div>
+      <div class="formation-desc">
+        แผนการเล่นแบบสมดุล เหมาะสำหรับทีมที่ต้องการควบคุมเกมและรุกรับได้ดี<br>
+        ผู้รักษาประตู 1 คน | กองหลัง 1 คน | ปีกด้านข้าง 2 คน | กองหน้า 1 คน<br>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
